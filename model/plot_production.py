@@ -60,7 +60,7 @@ def plot_production(self, parent, well_name, init=False):
         self.axes.xaxis.set_minor_locator(months)
 
     datemin = datetime.date(df_selected["date"].min().year, 1, 1)
-    datemax = datetime.date(df_selected["date"].max().year + 1, 1, 1)
+    datemax = datetime.date(df_selected["date"].max().year + 15, 1, 1)
     self.axes.set_xlim(datemin, datemax)
     self.axes.set_ylim(ymin=10)
 

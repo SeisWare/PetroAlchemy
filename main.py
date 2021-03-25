@@ -41,6 +41,7 @@ from PySide2.QtWidgets import (
     QFileDialog,
     QMainWindow,
     QMessageBox,
+    QInputDialog
 )
 
 import eia_data.commodity_prices as prices
@@ -57,11 +58,11 @@ from model.plot_production import plot_production as model_plot_production
 from model.set_production_widgets import (
     set_production_widgets as model_set_production_widgets,
 )
-from ui_mainwindow import Ui_main_window
+from ui_mainwindowSW import Ui_main_window
 
 mpl.use("Qt5Agg")
 
-VERSION = "0.3.0-beta"
+VERSION = "0.3.0"
 
 
 class MainWindow(QMainWindow):

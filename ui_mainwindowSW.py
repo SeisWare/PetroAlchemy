@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindow.ui'
+## Form generated from reading UI file 'mainwindowSW.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.0
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
@@ -672,6 +669,8 @@ class Ui_main_window(object):
         self.actionShow_Annual_Cashflow.setObjectName(u"actionShow_Annual_Cashflow")
         self.actionComing_Soon = QAction(main_window)
         self.actionComing_Soon.setObjectName(u"actionComing_Soon")
+        self.actionExport_EUR_To_SeisWare = QAction(main_window)
+        self.actionExport_EUR_To_SeisWare.setObjectName(u"actionExport_EUR_To_SeisWare")
         self.centralwidget = QWidget(main_window)
         self.centralwidget.setObjectName(u"centralwidget")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -794,8 +793,7 @@ class Ui_main_window(object):
         self.spinBoxRate = QSpinBox(self.groupBox)
         self.spinBoxRate.setObjectName(u"spinBoxRate")
         self.spinBoxRate.setFont(font2)
-        self.spinBoxRate.setMaximum(10000000)
-        self.spinBoxRate.setStepType(QAbstractSpinBox.AdaptiveDecimalStepType)
+        self.spinBoxRate.setMaximum(1000000)
 
         self.verticalLayout.addWidget(self.spinBoxRate)
 
@@ -1014,7 +1012,7 @@ class Ui_main_window(object):
         self.label_14.setObjectName(u"label_14")
         self.label_14.setFont(font5)
 
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_14)
+        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.label_14)
 
         self.doubleSpinBoxWorkingInterest = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxWorkingInterest.setObjectName(u"doubleSpinBoxWorkingInterest")
@@ -1022,13 +1020,13 @@ class Ui_main_window(object):
         self.doubleSpinBoxWorkingInterest.setMaximum(100.000000000000000)
         self.doubleSpinBoxWorkingInterest.setValue(100.000000000000000)
 
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.doubleSpinBoxWorkingInterest)
+        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.doubleSpinBoxWorkingInterest)
 
         self.label_15 = QLabel(self.groupBoxCashflowSetup)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setFont(font5)
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.label_15)
+        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_15)
 
         self.doubleSpinBoxNetRevenueInterest = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxNetRevenueInterest.setObjectName(u"doubleSpinBoxNetRevenueInterest")
@@ -1036,52 +1034,52 @@ class Ui_main_window(object):
         self.doubleSpinBoxNetRevenueInterest.setMaximum(100.000000000000000)
         self.doubleSpinBoxNetRevenueInterest.setValue(75.000000000000000)
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.doubleSpinBoxNetRevenueInterest)
+        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.doubleSpinBoxNetRevenueInterest)
 
         self.label_16 = QLabel(self.groupBoxCashflowSetup)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setFont(font5)
 
-        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_16)
+        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.label_16)
 
         self.spinBoxDiscountRate = QSpinBox(self.groupBoxCashflowSetup)
         self.spinBoxDiscountRate.setObjectName(u"spinBoxDiscountRate")
         self.spinBoxDiscountRate.setFont(font2)
         self.spinBoxDiscountRate.setValue(10)
 
-        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.spinBoxDiscountRate)
+        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.spinBoxDiscountRate)
 
         self.label_17 = QLabel(self.groupBoxCashflowSetup)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setFont(font5)
 
-        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.label_17)
+        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.label_17)
 
         self.spinBoxSeveranceTax = QSpinBox(self.groupBoxCashflowSetup)
         self.spinBoxSeveranceTax.setObjectName(u"spinBoxSeveranceTax")
         self.spinBoxSeveranceTax.setFont(font2)
         self.spinBoxSeveranceTax.setValue(7)
 
-        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.spinBoxSeveranceTax)
+        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.spinBoxSeveranceTax)
 
         self.label_18 = QLabel(self.groupBoxCashflowSetup)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setFont(font5)
 
-        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.label_18)
+        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.label_18)
 
         self.doubleSpinBoxOilPrice = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxOilPrice.setObjectName(u"doubleSpinBoxOilPrice")
         self.doubleSpinBoxOilPrice.setFont(font2)
         self.doubleSpinBoxOilPrice.setValue(50.000000000000000)
 
-        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.doubleSpinBoxOilPrice)
+        self.formLayout.setWidget(8, QFormLayout.FieldRole, self.doubleSpinBoxOilPrice)
 
         self.label_19 = QLabel(self.groupBoxCashflowSetup)
         self.label_19.setObjectName(u"label_19")
         self.label_19.setFont(font5)
 
-        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.label_19)
+        self.formLayout.setWidget(9, QFormLayout.LabelRole, self.label_19)
 
         self.doubleSpinBoxGasPrice = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxGasPrice.setObjectName(u"doubleSpinBoxGasPrice")
@@ -1089,13 +1087,13 @@ class Ui_main_window(object):
         self.doubleSpinBoxGasPrice.setSingleStep(0.100000000000000)
         self.doubleSpinBoxGasPrice.setValue(2.500000000000000)
 
-        self.formLayout.setWidget(8, QFormLayout.FieldRole, self.doubleSpinBoxGasPrice)
+        self.formLayout.setWidget(9, QFormLayout.FieldRole, self.doubleSpinBoxGasPrice)
 
         self.label_20 = QLabel(self.groupBoxCashflowSetup)
         self.label_20.setObjectName(u"label_20")
         self.label_20.setFont(font5)
 
-        self.formLayout.setWidget(9, QFormLayout.LabelRole, self.label_20)
+        self.formLayout.setWidget(10, QFormLayout.LabelRole, self.label_20)
 
         self.doubleSpinBoxOilDiff = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxOilDiff.setObjectName(u"doubleSpinBoxOilDiff")
@@ -1103,13 +1101,13 @@ class Ui_main_window(object):
         self.doubleSpinBoxOilDiff.setSingleStep(0.500000000000000)
         self.doubleSpinBoxOilDiff.setValue(2.000000000000000)
 
-        self.formLayout.setWidget(9, QFormLayout.FieldRole, self.doubleSpinBoxOilDiff)
+        self.formLayout.setWidget(10, QFormLayout.FieldRole, self.doubleSpinBoxOilDiff)
 
         self.label_21 = QLabel(self.groupBoxCashflowSetup)
         self.label_21.setObjectName(u"label_21")
         self.label_21.setFont(font5)
 
-        self.formLayout.setWidget(10, QFormLayout.LabelRole, self.label_21)
+        self.formLayout.setWidget(11, QFormLayout.LabelRole, self.label_21)
 
         self.doubleSpinBoxGasDiff = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxGasDiff.setObjectName(u"doubleSpinBoxGasDiff")
@@ -1117,13 +1115,13 @@ class Ui_main_window(object):
         self.doubleSpinBoxGasDiff.setSingleStep(0.500000000000000)
         self.doubleSpinBoxGasDiff.setValue(0.500000000000000)
 
-        self.formLayout.setWidget(10, QFormLayout.FieldRole, self.doubleSpinBoxGasDiff)
+        self.formLayout.setWidget(11, QFormLayout.FieldRole, self.doubleSpinBoxGasDiff)
 
         self.label_22 = QLabel(self.groupBoxCashflowSetup)
         self.label_22.setObjectName(u"label_22")
         self.label_22.setFont(font5)
 
-        self.formLayout.setWidget(11, QFormLayout.LabelRole, self.label_22)
+        self.formLayout.setWidget(12, QFormLayout.LabelRole, self.label_22)
 
         self.spinBoxOPEX = QSpinBox(self.groupBoxCashflowSetup)
         self.spinBoxOPEX.setObjectName(u"spinBoxOPEX")
@@ -1132,45 +1130,51 @@ class Ui_main_window(object):
         self.spinBoxOPEX.setSingleStep(500)
         self.spinBoxOPEX.setValue(10000)
 
-        self.formLayout.setWidget(11, QFormLayout.FieldRole, self.spinBoxOPEX)
+        self.formLayout.setWidget(12, QFormLayout.FieldRole, self.spinBoxOPEX)
 
         self.label_23 = QLabel(self.groupBoxCashflowSetup)
         self.label_23.setObjectName(u"label_23")
         self.label_23.setFont(font5)
 
-        self.formLayout.setWidget(12, QFormLayout.LabelRole, self.label_23)
+        self.formLayout.setWidget(13, QFormLayout.LabelRole, self.label_23)
 
         self.doubleSpinBoxCAPEX = QDoubleSpinBox(self.groupBoxCashflowSetup)
         self.doubleSpinBoxCAPEX.setObjectName(u"doubleSpinBoxCAPEX")
         self.doubleSpinBoxCAPEX.setFont(font2)
         self.doubleSpinBoxCAPEX.setValue(8.000000000000000)
 
-        self.formLayout.setWidget(12, QFormLayout.FieldRole, self.doubleSpinBoxCAPEX)
+        self.formLayout.setWidget(13, QFormLayout.FieldRole, self.doubleSpinBoxCAPEX)
 
         self.line_3 = QFrame(self.groupBoxCashflowSetup)
         self.line_3.setObjectName(u"line_3")
         self.line_3.setFrameShape(QFrame.HLine)
         self.line_3.setFrameShadow(QFrame.Sunken)
 
-        self.formLayout.setWidget(13, QFormLayout.SpanningRole, self.line_3)
+        self.formLayout.setWidget(14, QFormLayout.SpanningRole, self.line_3)
+
+        self.dateEditCashflowEnd = QDateEdit(self.groupBoxCashflowSetup)
+        self.dateEditCashflowEnd.setObjectName(u"dateEditCashflowEnd")
+        self.dateEditCashflowEnd.setMinimumSize(QSize(0, 18))
+        font7 = QFont()
+        font7.setFamily(u"Cascadia Code")
+        font7.setPointSize(12)
+        font7.setBold(False)
+        font7.setWeight(50)
+        self.dateEditCashflowEnd.setFont(font7)
+        self.dateEditCashflowEnd.setLayoutDirection(Qt.LeftToRight)
+        self.dateEditCashflowEnd.setCalendarPopup(True)
+        self.dateEditCashflowEnd.setDate(QDate(2025, 6, 1))
+
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.dateEditCashflowEnd)
+
+        self.label_25 = QLabel(self.groupBoxCashflowSetup)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setFont(font5)
+
+        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_25)
 
 
         self.gridLayout_3.addWidget(self.groupBoxCashflowSetup, 0, 0, 1, 1)
-
-        self.tableViewCashflow = QTableView(self.tabCashflow)
-        self.tableViewCashflow.setObjectName(u"tableViewCashflow")
-        sizePolicy1.setHeightForWidth(self.tableViewCashflow.sizePolicy().hasHeightForWidth())
-        self.tableViewCashflow.setSizePolicy(sizePolicy1)
-        self.tableViewCashflow.setMinimumSize(QSize(200, 700))
-        self.tableViewCashflow.setFont(font)
-        self.tableViewCashflow.setAlternatingRowColors(True)
-        self.tableViewCashflow.setSortingEnabled(False)
-        self.tableViewCashflow.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableViewCashflow.horizontalHeader().setMinimumSectionSize(150)
-        self.tableViewCashflow.horizontalHeader().setDefaultSectionSize(200)
-        self.tableViewCashflow.horizontalHeader().setStretchLastSection(True)
-
-        self.gridLayout_3.addWidget(self.tableViewCashflow, 0, 1, 1, 1)
 
         self.widget = QWidget(self.tabCashflow)
         self.widget.setObjectName(u"widget")
@@ -1182,7 +1186,7 @@ class Ui_main_window(object):
         self.widget.setMinimumSize(QSize(600, 300))
         self.pushButtonCreateCashflow = QPushButton(self.widget)
         self.pushButtonCreateCashflow.setObjectName(u"pushButtonCreateCashflow")
-        self.pushButtonCreateCashflow.setGeometry(QRect(160, 10, 200, 25))
+        self.pushButtonCreateCashflow.setGeometry(QRect(160, 40, 200, 25))
         sizePolicy2.setHeightForWidth(self.pushButtonCreateCashflow.sizePolicy().hasHeightForWidth())
         self.pushButtonCreateCashflow.setSizePolicy(sizePolicy2)
         self.pushButtonCreateCashflow.setMinimumSize(QSize(200, 0))
@@ -1193,7 +1197,7 @@ class Ui_main_window(object):
         self.pushButtonCreateCashflow.setIcon(icon6)
         self.tableViewSummaryValues = QTableView(self.widget)
         self.tableViewSummaryValues.setObjectName(u"tableViewSummaryValues")
-        self.tableViewSummaryValues.setGeometry(QRect(10, 50, 500, 192))
+        self.tableViewSummaryValues.setGeometry(QRect(30, 80, 500, 191))
         sizePolicy2.setHeightForWidth(self.tableViewSummaryValues.sizePolicy().hasHeightForWidth())
         self.tableViewSummaryValues.setSizePolicy(sizePolicy2)
         self.tableViewSummaryValues.setMinimumSize(QSize(500, 150))
@@ -1210,6 +1214,21 @@ class Ui_main_window(object):
         self.tableViewSummaryValues.horizontalHeader().setStretchLastSection(False)
 
         self.gridLayout_3.addWidget(self.widget, 1, 0, 1, 1)
+
+        self.tableViewCashflow = QTableView(self.tabCashflow)
+        self.tableViewCashflow.setObjectName(u"tableViewCashflow")
+        sizePolicy1.setHeightForWidth(self.tableViewCashflow.sizePolicy().hasHeightForWidth())
+        self.tableViewCashflow.setSizePolicy(sizePolicy1)
+        self.tableViewCashflow.setMinimumSize(QSize(200, 700))
+        self.tableViewCashflow.setFont(font)
+        self.tableViewCashflow.setAlternatingRowColors(True)
+        self.tableViewCashflow.setSortingEnabled(False)
+        self.tableViewCashflow.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableViewCashflow.horizontalHeader().setMinimumSectionSize(150)
+        self.tableViewCashflow.horizontalHeader().setDefaultSectionSize(200)
+        self.tableViewCashflow.horizontalHeader().setStretchLastSection(True)
+
+        self.gridLayout_3.addWidget(self.tableViewCashflow, 0, 1, 1, 1)
 
         icon7 = QIcon()
         icon7.addFile(u"resources/4288564 - banking business cash income money.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1244,6 +1263,7 @@ class Ui_main_window(object):
         self.menubar.addAction(self.menu_Help.menuAction())
         self.menuFile.addAction(self.actionImport_Data_2)
         self.menuFile.addAction(self.actionExport_Cashflow)
+        self.menuFile.addAction(self.actionExport_EUR_To_SeisWare)
         self.menu_Help.addAction(self.actionTutorial)
         self.menu_Help.addAction(self.actionDocumentation)
         self.menu_Help.addAction(self.actionWebsite)
@@ -1283,7 +1303,7 @@ class Ui_main_window(object):
         self.pushButtonCreateCashflow.clicked.connect(main_window.create_cashflow)
         self.actionExport_Cashflow.triggered.connect(main_window.save_cashflow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(main_window)
@@ -1315,6 +1335,7 @@ class Ui_main_window(object):
         self.actionNormalize_dates_to_Months.setText(QCoreApplication.translate("main_window", u"Normalize Dates to Months", None))
         self.actionShow_Annual_Cashflow.setText(QCoreApplication.translate("main_window", u"Show Annual Cashflow", None))
         self.actionComing_Soon.setText(QCoreApplication.translate("main_window", u"Coming Soon", None))
+        self.actionExport_EUR_To_SeisWare.setText(QCoreApplication.translate("main_window", u"Export EUR To SeisWare", None))
 #if QT_CONFIG(tooltip)
         self.comboBoxWellSelect.setToolTip("")
 #endif // QT_CONFIG(tooltip)
@@ -1400,6 +1421,7 @@ class Ui_main_window(object):
         self.label_23.setText(QCoreApplication.translate("main_window", u"CAPEX", None))
         self.doubleSpinBoxCAPEX.setPrefix(QCoreApplication.translate("main_window", u"$", None))
         self.doubleSpinBoxCAPEX.setSuffix(QCoreApplication.translate("main_window", u" Million", None))
+        self.label_25.setText(QCoreApplication.translate("main_window", u"End of Cashflow", None))
         self.pushButtonCreateCashflow.setText(QCoreApplication.translate("main_window", u"Create Cashflow", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabCashflow), QCoreApplication.translate("main_window", u"Cashflow", None))
         self.menuFile.setTitle(QCoreApplication.translate("main_window", u"&File", None))

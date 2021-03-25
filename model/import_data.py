@@ -5,68 +5,60 @@ import pandas as pd
 from PySide2 import QtCore, QtWidgets, QtGui
 from PySide2.QtCore import QFile, QObject, Signal, Slot
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtWidgets import QApplication, QFileDialog, QMainWindow, QMessageBox
-
+from PySide2.QtWidgets import QApplication, QFileDialog, QMainWindow, QMessageBox, QInputDialog
+from model.import_seisware import get_prod_from_proj, SWprojlist
 
 def import_data(self):
 
-    dialog = QFileDialog(self)
-    dialog.setFileMode(QFileDialog.ExistingFiles)
-
-    # filter files to excel and csv, not working yet
-    # dialog.setNameFilter(QObject.tr("Excel/CSV (*.xls *.xlss *.csv)"))
-
-    dialog.setDirectory(os.getcwd())
-    dialog.setViewMode(QFileDialog.Detail)
-
-    if dialog.exec_():
-        filenames = dialog.selectedFiles()
-
     wells_total = 0
 
-    for fname in filenames:
-        file_type = Path(fname).suffix
+    projects = sorted(i.Name() for i in SWprojlist())
 
-        if file_type == (".xlsx" or ".xls"):
-            df = pd.read_excel(fname, parse_dates=True)
+    print(projects)
 
-        elif file_type == (".csv"):
-            df = pd.read_csv(fname, parse_dates=["Date"])
+    dialog = QInputDialog(self)
 
-        df.columns = map(str.lower, df.columns)
+    item, ok = dialog.getItem(self, "Select SeisWare Project", "List of SeisWare Projects", projects,0, False)
+    
+    print(item)
 
-        # csv doesn't always parse dates correctly
+    if ok and item:
+        df = get_prod_from_proj(item)
 
-        df.date = [time.date() for time in df.date]
+    df.columns = map(str.lower, df.columns)
 
-        well_names = df["well name"].unique().tolist()
+    # csv doesn't always parse dates correctly
 
-        num_wells = len(well_names)
+    # df.date = [time.date() for time in df.date]
 
-        wells_total = wells_total + num_wells
+    well_names = df["well name"].unique().tolist()
 
-        for well_name in well_names:
+    num_wells = len(well_names)
 
-            well_name = str(well_name)
+    wells_total = wells_total + num_wells
 
-            # checks if the exact well name is already in the model
+    for well_name in well_names:
 
-            if well_name not in self.model.list:
+        well_name = str(well_name)
 
-                self.model.add(well_name)
+        # checks if the exact well name is already in the model
 
-                dict_well_name = well_name.replace(" ", "_")
-                self.well_dataframes_dict[dict_well_name] = df.loc[
-                    df["well name"] == well_name
-                ].reset_index()
+        if well_name not in self.model.list:
 
-            else:
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Warning)
-                msg.setText(f"{well_name} already exists, check the file and try again")
-                msg.setWindowTitle("Import Failed")
-                msg.exec_()
-                return
+            self.model.add(well_name)
+
+            dict_well_name = well_name.replace(" ", "_")
+            self.well_dataframes_dict[dict_well_name] = df.loc[
+                df["well name"] == well_name
+            ].reset_index()
+
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setText(f"{well_name} already exists, check the file and try again")
+            msg.setWindowTitle("Import Failed")
+            msg.exec_()
+            return
 
     if wells_total > 1:
         msg = QMessageBox()
