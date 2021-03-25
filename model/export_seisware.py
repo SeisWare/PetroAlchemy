@@ -13,6 +13,6 @@ def export_EUR_to_SeisWare(eur_value):
         # Check to make sure login_instance has been created before pushing data
 
     else:
-        # Display error message
+        # Display error message if failing
 
     return None
