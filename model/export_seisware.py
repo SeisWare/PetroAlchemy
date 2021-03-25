@@ -10,7 +10,7 @@ def export_EUR_to_SeisWare(eur_value):
     """
 
     if login_instance != None:
-        #
+        # Check to make sure login_instance has been created before pushing data
 
     else:
         # Display error message
