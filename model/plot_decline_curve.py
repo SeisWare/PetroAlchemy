@@ -25,8 +25,8 @@ def plot_decline_curve(parent, curve_name=None, reset=True):
         unit_factor = 1_000
     else:
         color = "r"
-        units = "BCF"
-        unit_factor = 1_000_000
+        units = "MCF"
+        unit_factor = 1_000
 
     df_curve = parent.decline_curves_dict.get(curve_name)
     figure.axes.plot(
@@ -45,16 +45,17 @@ def plot_decline_curve(parent, curve_name=None, reset=True):
 
     groupby_monthly = df_curve.groupby(pd.Grouper(freq="M")).sum()
 
-    eur_1_year = round(groupby_monthly[curve_name][:11].sum() / unit_factor, 1)
-    eur_5_year = round(groupby_monthly[curve_name][:59].sum() / unit_factor, 1)
-    eur_50_year = round(groupby_monthly[curve_name][:599].sum() / unit_factor, 1)
+    plot_decline_curve.eur_1_year = round(groupby_monthly[curve_name][:11].sum() / unit_factor, 1)
+    plot_decline_curve.eur_5_year = round(groupby_monthly[curve_name][:59].sum() / unit_factor, 1)
+    plot_decline_curve.eur_10_year = round(groupby_monthly[curve_name][:119].sum() / unit_factor, 1)
+    plot_decline_curve.eur_50_year = round(groupby_monthly[curve_name][:599].sum() / unit_factor, 1)
 
     textstr = "\n".join(
         (
             f"{curve_name}",
-            f"1 Year EUR: {eur_1_year:,} {units}",
-            f"5 Year EUR: {eur_5_year:,} {units}",
-            f"50 Year EUR: {eur_50_year:,} {units}",
+            f"1 Year EUR: {plot_decline_curve.eur_1_year:,} {units}",
+            f"5 Year EUR: {plot_decline_curve.eur_5_year:,} {units}",
+            f"10 Year EUR: {plot_decline_curve.eur_10_year:,} {units}",
         )
     )
 

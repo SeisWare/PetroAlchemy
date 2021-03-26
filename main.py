@@ -59,6 +59,8 @@ from model.set_production_widgets import (
     set_production_widgets as model_set_production_widgets,
 )
 from ui_mainwindowSW import Ui_main_window
+from model.import_seisware import get_prod_from_proj
+from model.export_seisware import export_EUR
 
 mpl.use("Qt5Agg")
 
@@ -167,6 +169,7 @@ class MainWindow(QMainWindow):
 
         self.ui.comboBoxWellSelect.setModel(self.model)
         self.ui.wellListView.setModel(self.model)
+
 
     @Slot(str)
     def well_selected(self, well_name):
@@ -308,6 +311,24 @@ class MainWindow(QMainWindow):
             self.df_cashflow_monthly.to_excel(
                 writer, sheet_name="PetroAlchemy Cashflow"
             )
+
+    def export_EUR_to_SeisWare(self):
+        """Save EUR and output to SeisWare Zone Attribute Named EUR"""
+
+        if get_prod_from_proj.login_instance != None:
+            print(get_prod_from_proj.login_instance.Project().Name())
+            print(model_plot_decline_curve.eur_1_year)
+            print(self.ui.comboBoxWellSelect.currentText())
+            export_EUR(
+            get_prod_from_proj.login_instance,
+            self.ui.comboBoxWellSelect.currentText(),
+            model_plot_decline_curve.eur_1_year
+            )
+
+        else:
+            # Import data first
+            print("No project")
+        pass
 
 
 if __name__ == "__main__":

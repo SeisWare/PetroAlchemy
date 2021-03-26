@@ -1282,6 +1282,7 @@ class Ui_main_window(object):
 
         self.retranslateUi(main_window)
         self.actionImport_Data.triggered.connect(main_window.import_data)
+        self.actionExport_EUR_To_SeisWare.triggered.connect(main_window.export_EUR_to_SeisWare)
         self.comboBoxWellSelect.currentTextChanged.connect(main_window.well_selected)
         self.actionTutorial.triggered.connect(main_window.help_tutorial)
         self.actionDocumentation.triggered.connect(main_window.help_documentation)

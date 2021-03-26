@@ -63,13 +63,13 @@ def get_prod_from_proj(project_name):
 
     # Fix date time in dataframe
 
-    login_instance = SWconnect(project_name)
+    get_prod_from_proj.login_instance = SWconnect(project_name)
 
     # Create a production list
     production_list = SeisWare.ProductionList()
 
     # Add all the production to the list
-    login_instance.ProductionManager().GetAll(production_list)
+    get_prod_from_proj.login_instance.ProductionManager().GetAll(production_list)
 
     volumesDF = pd.DataFrame(columns=["UWI","Date","Oil","Gas"])
     dflist = []
@@ -79,9 +79,9 @@ def get_prod_from_proj(project_name):
     #Print all the entities in the list
 
         # Populate the wells with production volumes
-        login_instance.ProductionManager().PopulateWells(i)
+        get_prod_from_proj.login_instance.ProductionManager().PopulateWells(i)
         
-        login_instance.ProductionManager().PopulateVolumes(i)
+        get_prod_from_proj.login_instance.ProductionManager().PopulateVolumes(i)
 
         # Create a bunch of empty lists and sets
         prod_well_list = SeisWare.ProductionWellList()
@@ -97,7 +97,7 @@ def get_prod_from_proj(project_name):
 
         well_list = SeisWare.WellList()
 
-        login_instance.WellManager().GetByKeys(prod_ID_list,well_list,failed_IDs)
+        get_prod_from_proj.login_instance.WellManager().GetByKeys(prod_ID_list,well_list,failed_IDs)
 
         wellname = well_list[0].UWI()
 
@@ -131,8 +131,6 @@ def get_prod_from_proj(project_name):
 
     volumes.drop_duplicates(inplace = True)
     volumes.to_csv("test.csv")
-
-    
 
     return volumes.sort_values(by=['Well Name', 'Date'])
 
