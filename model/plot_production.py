@@ -62,7 +62,7 @@ def plot_production(self, parent, well_name, init=False):
     datemin = datetime.date(df_selected["date"].min().year, 1, 1)
     datemax = datetime.date(df_selected["date"].max().year + 15, 1, 1)
     self.axes.set_xlim(datemin, datemax)
-    self.axes.set_ylim(ymin=10)
+    self.axes.set_ylim(ymin=0.1)
 
     for label in self.axes.xaxis.get_ticklabels():
         label.set_rotation(45)

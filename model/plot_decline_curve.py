@@ -50,6 +50,12 @@ def plot_decline_curve(parent, curve_name=None, reset=True):
     plot_decline_curve.eur_10_year = round(groupby_monthly[curve_name][:119].sum() / unit_factor, 1)
     plot_decline_curve.eur_50_year = round(groupby_monthly[curve_name][:599].sum() / unit_factor, 1)
 
+    plot_decline_curve.eur_list = [
+        plot_decline_curve.eur_1_year,
+        plot_decline_curve.eur_5_year,
+        plot_decline_curve.eur_10_year
+        ]
+
     textstr = "\n".join(
         (
             f"{curve_name}",
