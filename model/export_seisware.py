@@ -42,7 +42,7 @@ def check_for_zone_attribute(login_instance,zone_attribute_name):
 
     return None
 
-def export_EUR(login_instance,well_UWI,eur_value):
+def export_EUR(login_instance,well_UWI,eur_time,eur_value):
 
 
     """
@@ -63,21 +63,20 @@ def export_EUR(login_instance,well_UWI,eur_value):
 
         well = [i for i in well_list if i.UWI() == well_UWI]
 
-        zone = SeisWare.Zone()
 
+        # Create zone and name it EUR
+        zone = SeisWare.Zone()
         zone.Name("EUR")
 
-        print(zone.ID().toString())
 
         well_zone = SeisWare.WellZone()
 
-        well = well[0]
 
         #Create well zone
-        well_zone.WellID(well.ID())
+        well_zone.WellID(well[0].ID())
         well_zone.Zone(zone)
         well_zone.TopMD(SeisWare.Measurement(0,SeisWare.Unit.Meter))
-        well_zone.BaseMD(well.TotalDepth())
+        well_zone.BaseMD(well[0].TotalDepth())
 
         # Create empty attribute list
         attribute_list = SeisWare.ZoneAttributeList()
@@ -85,9 +84,9 @@ def export_EUR(login_instance,well_UWI,eur_value):
         # Check the attribute list for the EUR_1_year zone attribute
         login_instance.ZoneAttributeManager().GetAll(attribute_list)
 
-        zone_attribute = SeisWare.ZoneAttribute("EUR_1_Year","")
+        zone_attribute = SeisWare.ZoneAttribute(eur_time,"")
 
-        if "EUR_1_Year" not in [i.Name() for i in attribute_list]:
+        if eur_time not in [i.Name() for i in attribute_list]:
 
             login_instance.ZoneAttributeManager().Add(zone_attribute)
 

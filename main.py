@@ -29,10 +29,13 @@ import matplotlib.dates as mdates
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5 import NavigationToolbar2QT
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from PySide2 import QtCore, QtGui, QtWidgets
+
+from PySide2 import QtCore
+from PySide2 import QtGui
+from PySide2 import QtWidgets
 from PySide2.QtCore import QFile, QObject, Signal, Slot
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import (
