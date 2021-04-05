@@ -64,7 +64,7 @@ from model.export_seisware import export_EUR
 
 mpl.use("Qt5Agg")
 
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 
 
 class MainWindow(QMainWindow):
