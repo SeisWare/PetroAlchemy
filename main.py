@@ -325,8 +325,9 @@ class MainWindow(QMainWindow):
             export_EUR(
             get_prod_from_proj.login_instance,
             self.ui.comboBoxWellSelect.currentText(),
-            model_plot_decline_curve.eur_1_year
+            model_plot_decline_curve.eur_dict
             )
+            
 
         else:
             # Import data first

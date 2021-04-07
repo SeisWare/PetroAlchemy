@@ -42,11 +42,15 @@ def check_for_zone_attribute(login_instance,zone_attribute_name):
 
     return None
 
-def export_EUR(login_instance,well_UWI,eur_time,eur_value):
+def export_EUR(login_instance,well_UWI,eur_dict):
 
 
     """
-    Input : Well name(string) and eur value(integer)
+    Input 
+    Login instance
+    Well name : string
+    EUR time : string
+    Eur value : integer
 
     After EUR values are calculated in plot_decline_curve.py, send EUR values
     as a Well Zone Attribute back to SeisWare.
@@ -81,33 +85,34 @@ def export_EUR(login_instance,well_UWI,eur_time,eur_value):
         # Create empty attribute list
         attribute_list = SeisWare.ZoneAttributeList()
 
-        # Check the attribute list for the EUR_1_year zone attribute
-        login_instance.ZoneAttributeManager().GetAll(attribute_list)
-
-        zone_attribute = SeisWare.ZoneAttribute(eur_time,"")
-
-        if eur_time not in [i.Name() for i in attribute_list]:
-
-            login_instance.ZoneAttributeManager().Add(zone_attribute)
-
-
-        attributes = SeisWare.WellZoneAttributes()
-
-        attribute = SeisWare.WellZoneAttribute()
-
         wz_attribute_list = SeisWare.WellZoneAttributeList()
 
-        
+        # Get the attribute list to check for existing attribute names
+        login_instance.ZoneAttributeManager().GetAll(attribute_list)
 
-        eur = SeisWare.Variant(f"{eur_value}")
-        # Set the attribute value
-        attribute.AttributeValue(eur)
-        
-        # Set the zone for the attribute
-        attribute.ZoneAttribute(zone_attribute)
+        for eur_time, eur_value in eur_dict.items():
 
-        # Add the Attribute to the attribute list
-        wz_attribute_list.append(attribute)
+            zone_attribute = SeisWare.ZoneAttribute(eur_time,"")
+
+            # When iterating check for the name
+            if eur_time not in [i.Name() for i in attribute_list]:
+
+                login_instance.ZoneAttributeManager().Add(zone_attribute)
+
+            attributes = SeisWare.WellZoneAttributes()
+
+            attribute = SeisWare.WellZoneAttribute()
+
+            eur = SeisWare.Variant(f"{eur_value}")
+            
+            # Set the attribute value
+            attribute.AttributeValue(eur)
+            
+            # Set the zone for the attribute
+            attribute.ZoneAttribute(zone_attribute)
+
+            # Add the Attribute to the attribute list
+            wz_attribute_list.append(attribute)
 
         # Use the attribute list to set it to use attributes
         attributes.SetAttributes(wz_attribute_list)
@@ -115,13 +120,8 @@ def export_EUR(login_instance,well_UWI,eur_time,eur_value):
         # Set the attributews to the well zone
         well_zone.SetAttributes(attributes)
 
-
-        #print(well_zone)
-
         # Finally add the Well Zone to the project
         login_instance.WellZoneManager().Add(well_zone)
-
-        #print(well_zone.Zone().ID().toString())
 
 
     else:
