@@ -8,7 +8,7 @@ if sys.platform == "win32":
 
 icon = r"icon\\app_icon.ico"
 
-VERSION = "0.3.0-beta"
+VERSION = "0.3.1"
 
 executables = [
     Executable("main.py", base=base, icon=icon, targetName="PetroAlchemy.exe")
@@ -48,6 +48,7 @@ include_files = [
     r"model",
     r"settings",
     r"styles",
+    r"python3.dll",
 ]
 
 setup(
@@ -59,9 +60,9 @@ setup(
     description="Open source desktop application for decline curve and financial analysis",
     options={
         "build_exe": {
-            "packages": ["PySide2", "matplotlib", "mpl_toolkits"],
+            "packages": ["PySide2", "matplotlib","mpl_toolkits","tkinter"],
             "include_files": include_files,
-            "excludes": ["matplotlib.tests", "numpy.random._examples"],
+            "excludes": ["matplotlib.tests", "numpy.random._examples","Tkinter"],
         },
         "bdist_msi": bdist_msi_options,
     },

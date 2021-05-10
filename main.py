@@ -29,10 +29,13 @@ import matplotlib.dates as mdates
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5 import NavigationToolbar2QT
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from PySide2 import QtCore, QtGui, QtWidgets
+
+from PySide2 import QtCore
+from PySide2 import QtGui
+from PySide2 import QtWidgets
 from PySide2.QtCore import QFile, QObject, Signal, Slot
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import (
@@ -41,6 +44,7 @@ from PySide2.QtWidgets import (
     QFileDialog,
     QMainWindow,
     QMessageBox,
+    QInputDialog
 )
 
 import eia_data.commodity_prices as prices
@@ -57,11 +61,13 @@ from model.plot_production import plot_production as model_plot_production
 from model.set_production_widgets import (
     set_production_widgets as model_set_production_widgets,
 )
-from ui_mainwindow import Ui_main_window
+from ui_mainwindowSW import Ui_main_window
+from model.import_seisware import get_prod_from_proj
+from model.export_seisware import export_EUR
 
 mpl.use("Qt5Agg")
 
-VERSION = "0.3.0-beta"
+VERSION = "0.3.1"
 
 
 class MainWindow(QMainWindow):
@@ -166,6 +172,7 @@ class MainWindow(QMainWindow):
 
         self.ui.comboBoxWellSelect.setModel(self.model)
         self.ui.wellListView.setModel(self.model)
+
 
     @Slot(str)
     def well_selected(self, well_name):
@@ -307,6 +314,25 @@ class MainWindow(QMainWindow):
             self.df_cashflow_monthly.to_excel(
                 writer, sheet_name="PetroAlchemy Cashflow"
             )
+
+    def export_EUR_to_SeisWare(self):
+        """Save EUR and output to SeisWare Zone Attribute Named EUR"""
+
+        if get_prod_from_proj.login_instance != None:
+            print(get_prod_from_proj.login_instance.Project().Name())
+            print(model_plot_decline_curve.eur_1_year)
+            print(self.ui.comboBoxWellSelect.currentText())
+            export_EUR(
+            get_prod_from_proj.login_instance,
+            self.ui.comboBoxWellSelect.currentText(),
+            model_plot_decline_curve.eur_dict
+            )
+            
+
+        else:
+            # Import data first
+            print("No project")
+        pass
 
 
 if __name__ == "__main__":

@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.condaPath": "F:\\Anaconda3\\condabin\\",
+		"python.pythonPath": "C:\\Users\\Marko\\.conda\\envs\\PetroAlchemy\\env\\python.exe"
+	}
+}

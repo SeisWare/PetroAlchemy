@@ -22,6 +22,7 @@ from PySide2.QtWidgets import (
     QFileDialog,
     QMainWindow,
     QMessageBox,
+    QInputDialog
 )
 
 import eia_data.commodity_prices as prices
