@@ -1,7 +1,7 @@
 # PetroAlchemy
 
 [![Documentation Status](https://readthedocs.org/projects/petroalchemy/badge/?version=latest)](https://petroalchemy.readthedocs.io/en/latest/?badge=latest)
-[![Latest Version](https://img.shields.io/github/v/release/mwentzWW/PetroAlchemy?include_prereleases)](https://github.com/mwentzWW/PetroAlchemy/releases)
+[![Latest Version](https://img.shields.io/github/v/release/mwentzWW/PetroAlchemy?include_prereleases)](https://github.com/markogauk/PetroAlchemy/releases)
 ![Downloads](https://img.shields.io/github/downloads/mwentzWW/PetroAlchemy/total)
 
 Open source petroleum forecasting and financial tool.
@@ -9,6 +9,8 @@ Open source petroleum forecasting and financial tool.
 ![Preview](./docs/img/preview_0.3.0-beta.gif)
 
 ## Introduction
+
+This fork has been modified from the [original PetroAlchemy](https://github.com/mwentzWW/PetroAlchemy) to connect to [SeisWare Interpretation Software](https://seisware.com/). After connecting to a SeisWare project, all production data for wells in the project will be imported to PetroAlchemy. After decline curves are generated, the EUR value can be pushed directly into SeisWare.
 
 The PetroAlchemy project grew out of my first attempt to create an open source project for petroleum engineering called petrolpy. The vision is to create an open source desktop application with useful tools for anyone interested in petroleum evaluation. As a reservoir engineer, I wanted to build tools I would actually use. Therefore, the project is beginning with decline curve analysis and estimating cash flows for wells or groups of wells. The goal is to balance ease of use and extensibilty for advanced analysis.
 
@@ -18,11 +20,11 @@ PetroAlchemy is free to use and will never require you to purchase a license or 
 
 | System            | Download                                                                                                                                      |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows 10 64-bit | [PetroAlchemy-0.3.0-beta-amd64.msi](https://github.com/mwentzWW/PetroAlchemy/releases/download/v0.3.0-beta/PetroAlchemy-0.3.0-beta-amd64.msi) |
+| Windows 10 64-bit | [PetroAlchemy-0.3.1-amd64.msi](https://github.com/markogauk/PetroAlchemy/releases/download/0.3.1/PetroAlchemy-0.3.1-amd64.msi) |
 
 ## Getting Started
 
-Refer to the current [documenation](https://petroalchemy.readthedocs.io/en/latest/tutorial.html) to get started.
+Refer to the current [documentation](https://petroalchemy.readthedocs.io/en/latest/tutorial.html) to get started.
 
 This desktop application was created using [Python](https://www.python.org/) and [Qt](https://www.qt.io/). Performing decline curve analysis and running cash flows is not computationally intensive unless you are running thousands of decline curves, which at that point the code would need to be optimized for speed. As this tool is starting with a focus on analyzing a few wells at a time, Python is ideal for feature development and prototyping. Migrating the source code to the Qt framework has improved the code quality and maintainability.
 
