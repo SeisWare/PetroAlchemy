@@ -20,7 +20,7 @@ PetroAlchemy is free to use and will never require you to purchase a license or 
 
 | System            | Download                                                                                                                                      |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows 10 64-bit | [PetroAlchemy-0.3.1-amd64.msi](https://github.com/markogauk/PetroAlchemy/releases/download/0.3.1/PetroAlchemy-0.3.1-amd64.msi) |
+| Windows 10 64-bit | [PetroAlchemy-0.3.2-amd64.msi](https://github.com/markogauk/PetroAlchemy/releases/download/0.3.1/PetroAlchemy-0.3.2-amd64.msi) |
 
 ## Getting Started
 
