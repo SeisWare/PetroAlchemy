@@ -6,8 +6,6 @@
 
 Open source petroleum forecasting and financial tool.
 
-![Preview](./docs/img/preview_0.3.0-beta.gif)
-
 ## Introduction
 
 This fork has been modified from the [original PetroAlchemy](https://github.com/mwentzWW/PetroAlchemy) to connect to [SeisWare Interpretation Software](https://seisware.com/). After connecting to a SeisWare project, all production data for wells in the project will be imported to PetroAlchemy. After decline curves are generated, the EUR value can be pushed directly into SeisWare.
