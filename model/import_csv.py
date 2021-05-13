@@ -8,7 +8,7 @@ from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import QApplication, QFileDialog, QMainWindow, QMessageBox
 
 
-def import_data(self):
+def import_csv(self):
 
     dialog = QFileDialog(self)
     dialog.setFileMode(QFileDialog.ExistingFiles)
@@ -21,6 +21,8 @@ def import_data(self):
 
     if dialog.exec_():
         filenames = dialog.selectedFiles()
+    else: 
+        return
 
     wells_total = 0
 
@@ -38,6 +40,8 @@ def import_data(self):
         # csv doesn't always parse dates correctly
 
         df.date = [time.date() for time in df.date]
+
+        df.sort_values(by=['well name', 'date']).dropna()
 
         well_names = df["well name"].unique().tolist()
 

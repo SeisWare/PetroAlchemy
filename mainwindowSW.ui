@@ -650,7 +650,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="movable">
        <bool>false</bool>
@@ -1928,7 +1928,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="actionImport_Data_2"/>
+    <addaction name="actionImport_CSV_2"/>
+    <addaction name="actionImport_Data_SW_2"/>
+    <addaction name="separator"/>
     <addaction name="actionExport_Cashflow"/>
     <addaction name="actionExport_EUR_To_SeisWare"/>
    </widget>
@@ -1979,9 +1981,10 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionImport_Data"/>
+   <addaction name="actionImport_CSV"/>
+   <addaction name="actionImport_Data_SW"/>
   </widget>
-  <action name="actionImport_Data">
+  <action name="actionImport_CSV">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -1990,7 +1993,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../resources/2850901 - document file page paper upload.png</normaloff>../../resources/2850901 - document file page paper upload.png</iconset>
+     <normaloff>resources/2850900 - document download file page paper.png</normaloff>resources/2850900 - document download file page paper.png</iconset>
    </property>
    <property name="text">
     <string>Import Data</string>
@@ -2097,13 +2100,22 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     </font>
    </property>
   </action>
-  <action name="actionImport_Data_2">
+  <action name="actionImport_Data_SW">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../resources/2850901 - document file page paper upload.png</normaloff>../../resources/2850901 - document file page paper upload.png</iconset>
+     <normaloff>resources/SeisWare_64x64.png</normaloff>resources/SeisWare_64x64.png</iconset>
    </property>
    <property name="text">
-    <string>Import Data</string>
+    <string>Import SeisWare Data</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionCheck_for_updates">
@@ -2119,7 +2131,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   <action name="actionExport_Cashflow">
    <property name="icon">
     <iconset>
-     <normaloff>../../resources/2850900 - document download file page paper.png</normaloff>../../resources/2850900 - document download file page paper.png</iconset>
+     <normaloff>resources/2850901 - document file page paper upload.png</normaloff>resources/2850901 - document file page paper upload.png</iconset>
    </property>
    <property name="text">
     <string>Export Cashflow</string>
@@ -2165,18 +2177,43 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    </property>
   </action>
   <action name="actionExport_EUR_To_SeisWare">
+   <property name="icon">
+    <iconset>
+     <normalon>resources/SeisWare_64x64.png</normalon>
+    </iconset>
+   </property>
    <property name="text">
     <string>Export EUR To SeisWare</string>
+   </property>
+  </action>
+  <action name="actionImport_CSV_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>resources/2850900 - document download file page paper.png</normaloff>
+     <normalon>resources/2850900 - document download file page paper.png</normalon>resources/2850900 - document download file page paper.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import CSV Data</string>
+   </property>
+  </action>
+  <action name="actionImport_Data_SW_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>resources/SeisWare_64x64.png</normaloff>
+     <normalon>resources/SeisWare_64x64.png</normalon>resources/SeisWare_64x64.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import SeisWare Data</string>
    </property>
   </action>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>actionImport_Data</sender>
+   <sender>actionImport_CSV</sender>
    <signal>triggered()</signal>
    <receiver>main_window</receiver>
-   <slot>import_data()</slot>
+   <slot>import_csv()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -2195,8 +2232,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <slot>well_selected()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>274</x>
-     <y>94</y>
+     <x>283</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>854</x>
@@ -2365,7 +2402,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    </hints>
   </connection>
   <connection>
-   <sender>actionImport_Data_2</sender>
+   <sender>actionImport_Data_SW</sender>
    <signal>triggered()</signal>
    <receiver>main_window</receiver>
    <slot>import_data()</slot>
@@ -2419,8 +2456,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <slot>reset_plot()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>327</x>
-     <y>807</y>
+     <x>344</x>
+     <y>827</y>
     </hint>
     <hint type="destinationlabel">
      <x>1179</x>
@@ -2435,8 +2472,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <slot>plot_decline_curves()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>262</x>
-     <y>833</y>
+     <x>283</x>
+     <y>854</y>
     </hint>
     <hint type="destinationlabel">
      <x>1312</x>
@@ -2451,8 +2488,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <slot>delete_decline_curves()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
-     <y>857</y>
+     <x>344</x>
+     <y>881</y>
     </hint>
     <hint type="destinationlabel">
      <x>730</x>
@@ -2483,8 +2520,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <slot>create_cashflow()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>520</x>
-     <y>545</y>
+     <x>379</x>
+     <y>656</y>
     </hint>
     <hint type="destinationlabel">
      <x>634</x>
@@ -2531,5 +2568,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   <slot>about_check_for_updates()</slot>
   <slot>about_donate()</slot>
   <slot>save_cashflow()</slot>
+  <slot>import_data_SW()</slot>
+  <slot>import_csv()</slot>
  </slots>
 </ui>

@@ -55,6 +55,7 @@ from model.create_decline_curve import (
 )
 from model.custom_models import ListModel, TableModel
 from model.import_data import import_data as model_import_data
+from model.import_csv import import_csv as model_import_csv
 from model.mpl_canvas_widget import DynamicMplCanvas
 from model.plot_decline_curve import plot_decline_curve as model_plot_decline_curve
 from model.plot_production import plot_production as model_plot_production
@@ -169,6 +170,12 @@ class MainWindow(QMainWindow):
 
     def import_data(self):
         model_import_data(self)
+
+        self.ui.comboBoxWellSelect.setModel(self.model)
+        self.ui.wellListView.setModel(self.model)
+
+    def import_csv(self):
+        model_import_csv(self)
 
         self.ui.comboBoxWellSelect.setModel(self.model)
         self.ui.wellListView.setModel(self.model)

@@ -24,12 +24,16 @@ def import_data(self):
 
     if ok and item:
         df = get_prod_from_proj(item)
+    else:
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Warning)
+        msg.setText("Please select a project")
+        msg.setWindowTitle("Import Failed")
+        msg.exec_()
+        return
+
 
     df.columns = map(str.lower, df.columns)
-
-    # csv doesn't always parse dates correctly
-
-    # df.date = [time.date() for time in df.date]
 
     well_names = df["well name"].unique().tolist()
 
@@ -66,9 +70,15 @@ def import_data(self):
         msg.setText(f"{wells_total} wells have been added 🚀")
         msg.setWindowTitle("Import Finished")
         msg.exec_()
-    else:
+    elif wells_total == 1:
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
         msg.setText(f"{well_name} has been added 🚀")
         msg.setWindowTitle("Import Finished")
+        msg.exec_()
+    else:
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("No wells have been found")
+        msg.setWindowTitle("Import Failed")
         msg.exec_()

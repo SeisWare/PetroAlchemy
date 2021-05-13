@@ -130,9 +130,9 @@ def get_prod_from_proj(project_name):
     volumes.drop(columns = ["Gas Units","Oil Units"])
 
     volumes.drop_duplicates(inplace = True)
-    volumes.to_csv("test.csv")
+    #volumes.to_csv("test.csv")
 
-    return volumes.sort_values(by=['Well Name', 'Date'])
+    return volumes.sort_values(by=['Well Name', 'Date']).dropna()
 
 def import_seisware_data(self):
 
