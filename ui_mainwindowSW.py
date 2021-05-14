@@ -23,7 +23,7 @@ class Ui_main_window(object):
         font.setPointSize(10)
         main_window.setFont(font)
         icon = QIcon()
-        icon.addFile(u"../../icon/app_icon.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"icon/app_icon.ico", QSize(), QIcon.Normal, QIcon.Off)
         main_window.setWindowIcon(icon)
         main_window.setStyleSheet(u"/*\n"
 "Aqua Style Sheet for QT Applications\n"

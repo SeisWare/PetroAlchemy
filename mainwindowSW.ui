@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../icon/app_icon.ico</normaloff>../../icon/app_icon.ico</iconset>
+    <normaloff>icon/app_icon.ico</normaloff>icon/app_icon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">/*
