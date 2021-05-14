@@ -2549,7 +2549,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
    <sender>actionExport_EUR_To_SeisWare</sender>
    <signal>triggered()</signal>
    <receiver>main_window</receiver>
-   <slot>export_seisware()</slot>
+   <slot>export_EUR_to_SeisWare()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -2586,6 +2586,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   <slot>save_cashflow()</slot>
   <slot>import_data_SW()</slot>
   <slot>import_csv()</slot>
-  <slot>export_seisware()</slot>
+  <slot>export_EUR_to_SeisWare()</slot>
  </slots>
 </ui>

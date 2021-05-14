@@ -1325,7 +1325,7 @@ class Ui_main_window(object):
         self.actionDonate.triggered.connect(main_window.about_donate)
         self.pushButtonCreateCashflow.clicked.connect(main_window.create_cashflow)
         self.actionExport_Cashflow.triggered.connect(main_window.save_cashflow)
-        self.actionExport_EUR_To_SeisWare.triggered.connect(main_window.export_seisware)
+        self.actionExport_EUR_To_SeisWare.triggered.connect(main_window.export_EUR_to_SeisWare)
 
         self.tabWidget.setCurrentIndex(0)
 
