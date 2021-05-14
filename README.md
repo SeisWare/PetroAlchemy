@@ -6,7 +6,7 @@
 
 Open source petroleum forecasting and financial tool.
 
-![Preview](./docs/img/preview_0.3.0-beta.gif)
+![Preview](./docs/img/preview_0.3.2.gif)
 
 ## Introduction
 
