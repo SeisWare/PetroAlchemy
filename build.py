@@ -8,7 +8,7 @@ if sys.platform == "win32":
 
 icon = r"icon\\app_icon.ico"
 
-VERSION = "0.3.2"
+VERSION = "0.3.3"
 
 executables = [
     Executable("main.py", base=base, icon=icon, targetName="PetroAlchemy.exe")
