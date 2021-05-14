@@ -6,14 +6,13 @@
 
 Open source petroleum forecasting and financial tool.
 
-
 ## Introduction
 
 This fork has been modified from the [original PetroAlchemy](https://github.com/mwentzWW/PetroAlchemy) to connect to [SeisWare Interpretation Software](https://seisware.com/). After connecting to a SeisWare project, all production data for wells in the project will be imported to PetroAlchemy. After decline curves are generated, the EUR value can be pushed directly into SeisWare.
 
 ![Import From SeisWare](./docs/img/preview_0.3.2.gif)
 
-The PetroAlchemy project grew out of my first attempt to create an open source project for petroleum engineering called petrolpy. The vision is to create an open source desktop application with useful tools for anyone interested in petroleum evaluation. As a reservoir engineer, I wanted to build tools I would actually use. Therefore, the project is beginning with decline curve analysis and estimating cash flows for wells or groups of wells. The goal is to balance ease of use and extensibilty for advanced analysis.
+The PetroAlchemy project grew out of work by [Michael Wentz](https://github.com/mwentzWW) to create an open source project for petroleum engineering called petrolpy. The vision is to create an open source desktop application with useful tools for anyone interested in petroleum evaluation. As a reservoir engineer, I wanted to build tools I would actually use. Therefore, the project is beginning with decline curve analysis and estimating cash flows for wells or groups of wells. The goal is to balance ease of use and extensibilty for advanced analysis.
 
 PetroAlchemy is free to use and will never require you to purchase a license or pay any fees to use. If you would like to donate to the project you can do so [here](https://paypal.me/MichaelWentz).
 
@@ -21,7 +20,7 @@ PetroAlchemy is free to use and will never require you to purchase a license or 
 
 | System            | Download                                                                                                                                      |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows 10 64-bit | [PetroAlchemy-0.3.1-amd64.msi](https://github.com/markogauk/PetroAlchemy/releases/download/0.3.1/PetroAlchemy-0.3.1-amd64.msi) |
+| Windows 10 64-bit | [PetroAlchemy-0.3.2-amd64.msi](https://github.com/markogauk/PetroAlchemy/releases/download/0.3.1/PetroAlchemy-0.3.2-amd64.msi) |
 
 ## Getting Started
 
