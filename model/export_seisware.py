@@ -82,6 +82,15 @@ def export_EUR(login_instance,well_UWI,eur_dict):
         well_zone.TopMD(SeisWare.Measurement(0,SeisWare.Unit.Meter))
         well_zone.BaseMD(well[0].TotalDepth())
 
+        # Get the Zone Type list
+        zone_type_list = SeisWare.ZoneTypeList()
+
+        login_instance.ZoneTypeManager().GetAll(zone_type_list)
+
+        zone_type_generic = [i.ID() for i in zone_type_list if i.Name() == "Generic"]
+
+        well_zone.ZoneTypeID(zone_type_generic[0])
+
         # Create empty attribute list
         attribute_list = SeisWare.ZoneAttributeList()
 
@@ -93,6 +102,8 @@ def export_EUR(login_instance,well_UWI,eur_dict):
         for eur_time, eur_value in eur_dict.items():
 
             zone_attribute = SeisWare.ZoneAttribute(eur_time,"")
+
+            zone_attribute.ZoneTypeID(zone_type_generic[0])
 
             # When iterating check for the name
             if eur_time not in [i.Name() for i in attribute_list]:

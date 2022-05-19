@@ -100,13 +100,13 @@ def get_prod_from_proj(project_name):
         get_prod_from_proj.login_instance.WellManager().GetByKeys(prod_ID_list,well_list,failed_IDs)
 
         wellname = well_list[0].UWI()
-
+        # Returns production volumes in bbl(oil) and mcf(gas)
         print(wellname)
         if len(prod_volumes) > 0:
             volumesDF=pd.DataFrame([(
             f"{i.VolumeDate().year}"+'-'+f"{i.VolumeDate().month}"+'-'+f"{i.VolumeDate().day}",
-            i.OilVolume(),i.OilVolumeUnits(),
-            i.GasVolume(),i.GasVolumeUnits(),
+            i.OilVolume(),i.OilVolumeUnits(SeisWare.VolumeUnit_bbl),
+            i.GasVolume(),i.GasVolumeUnits(SeisWare.VolumeUnit_mcf),
             wellname
             ) 
             for i in prod_volumes],
@@ -121,17 +121,22 @@ def get_prod_from_proj(project_name):
     
     cols = ["Oil","Gas"]
 
-    volumes = volumes[volumes["Gas Units"] == 4]
-    volumes = volumes[volumes["Oil Units"] == 8]
+    #volumes = volumes[volumes["Gas Units"] == 4]
+    #volumes = volumes[volumes["Oil Units"] == 8]
 
     #volumes["Oil"] = volumes["Oil"].replace({0:np.nan})
     #volumes["Gas"] = volumes["Gas"].replace({0:np.nan})
     
-    volumes.drop(columns = ["Gas Units","Oil Units"])
+    volumes.drop(columns = ["Gas Units","Oil Units"],inplace = True)
 
     volumes.drop_duplicates(inplace = True)
-    #volumes.to_csv("test.csv")
+    
+    volumes = volumes[volumes['Oil'] != 0]
+    volumes = volumes[volumes['Gas'] != 0]
 
+    volumes.to_csv("test.csv")
+
+    print(volumes)
     return volumes.sort_values(by=['Well Name', 'Date']).dropna()
 
 def import_seisware_data(self):
