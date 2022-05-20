@@ -1317,6 +1317,7 @@ class Ui_main_window(object):
         self.actionCurrent_Version.triggered.connect(main_window.about_version)
         self.pushButtonCreateDeclineCurve.clicked.connect(main_window.create_decline_curve)
         self.actionImport_Data_SW.triggered.connect(main_window.import_data)
+        self.actionImport_Data_SW_2.triggered.connect(main_window.import_data)
         self.comboBoxUnits.currentTextChanged.connect(main_window.units_changed)
         self.comboBoxPhase.currentTextChanged.connect(main_window.phase_changed)
         self.pushButtonRemoveDeclineCurves.clicked.connect(main_window.reset_plot)
